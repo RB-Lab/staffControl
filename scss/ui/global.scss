@@ -1,0 +1,17 @@
+html, body{
+	height: 100%;
+	background: $bodyBackground
+}
+
+.main-container{
+	@include all-0;
+	overflow: auto;
+	background: $background;
+	@media screen and (min-width: $maxwidth) {
+		width: $maxwidth;
+		margin: auto;
+		border: solid $borderMain;
+		border-width: 0 1px;
+		box-shadow: 0 0 100px 10px rgba(33, 35, 44, 0.78);
+	}
+}
