@@ -1,0 +1,8 @@
+{
+	"name": "Stuff-Control",
+	"version": "0.1.0",
+	"private": true,
+	"dependencies": {
+		"angular": "1.2.x"
+	}
+}
