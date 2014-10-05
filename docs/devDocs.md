@@ -3,4 +3,4 @@
 ## Userfolow (old)
 ![userflow](flow.png)
 
-## [Blueprint pages (old)](oldBluePirnt.md)
+## [Blueprint pages (old)](oldBluePrint.md)
