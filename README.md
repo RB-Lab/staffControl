@@ -1,7 +1,7 @@
-StaffControl
+StuffControl
 ============
 
-**StaffControll** is yet another Getting-Things-Done organiser accessible via browser or as mobile app.
+**StuffControll** is yet another Getting-Things-Done organiser accessible via browser or as mobile app.
 
 ###Key features (in the future).
 1. Can work offline even in browser
