@@ -3,9 +3,13 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"sass": "sass --watch scss/main.scss:public/css/style.css"
+		"sass": "sass --watch scss/main.scss:public/css/style.css",
+		"test": "karma start test/karma.conf.js"
 	},
 	"dependencies": {
 
+	},
+	"devDependencies": {
+		"karma": "~0.10"
 	}
 }

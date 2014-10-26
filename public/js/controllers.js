@@ -1,6 +1,6 @@
 var scControllers = angular.module('scControllers', []);
 
-scControllers.controller('inbox', function($scope){
+scControllers.controller('Inbox', function($scope){
 	$scope.inbox = getFromLocalStorage();
 
 	function saveToLocalStorage(){
