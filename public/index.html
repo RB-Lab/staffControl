@@ -11,11 +11,13 @@
 </head>
 <body>
 	<div class="main-container">
-		<div class="container">
+		<div class="container" ng-controller="inbox">
 			<h3>Control your stuff!</h3>
-			<p><input type="text" class="form-control"  placeholder="New thing" /></p>
 			<p>
-				<button class="btn btn-primary">
+				<input type="text" class="form-control" placeholder="New thing" ng-model="newThing"/>
+			</p>
+			<p>
+				<button class="btn btn-primary" ng-click="addNewThing()">
 					<span class="glyphicon glyphicon-plus"></span>
 					Add
 				</button>
@@ -25,11 +27,11 @@
 				</button>
 			</p>
 			<div class="list-group">
-				<a href="#" class="list-group-item">Cras justo odio</a>
-				<a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-				<a href="#" class="list-group-item">Morbi leo risus</a>
-				<a href="#" class="list-group-item">Porta ac consectetur ac</a>
-				<a href="#" class="list-group-item">Vestibulum at eros</a>
+				<a  href="#"
+					class="list-group-item"
+					ng-repeat="item in inbox | orderBy:'-created'">
+						{{item.title}}
+				</a>
 			</div>
 		</div>
 		<div class="bottom-menu">
