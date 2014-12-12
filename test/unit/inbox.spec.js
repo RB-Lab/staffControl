@@ -1,3 +1,5 @@
+// TODO this test now describes behaviour of scApp depending on thingsStorage. It should be 2 separated suite.
+
 describe('scApp controllers', function() {
 	beforeEach(module('scControllers'));
 
