@@ -18,7 +18,7 @@ scStorage.factory('thingsStorage', ['$window', function(w){
 	return {
 		inbox: inbox,
 		addItemToInbox: function(name){
-			inbox.push({title: name, created: Date.now()});
+			inbox.push({title: name, created: w.Date.now()});
 			saveToLocalStorage();
 		}
 	};
