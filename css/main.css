@@ -1,0 +1,25 @@
+html, body {
+  height: 100%;
+  background: #7fafb1; }
+
+.main-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+  background: #fff; }
+  @media screen and (min-width: 800px) {
+    .main-container {
+      width: 800px;
+      margin: auto;
+      border: solid #818181;
+      border-width: 0 1px;
+      box-shadow: 0 0 100px 10px rgba(33, 35, 44, 0.78); } }
+  .main-container .container {
+    width: 100%; }
+
+.bottom-menu {
+  position: absolute;
+  bottom: 0; }

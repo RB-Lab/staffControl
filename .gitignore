@@ -1,4 +1,5 @@
 node_modules/
 .sass-cache/
-public/js/lib/external/
+public/js/
+js/lib/external/
 public/css/

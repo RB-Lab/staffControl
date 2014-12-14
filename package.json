@@ -10,6 +10,10 @@
 
 	},
 	"devDependencies": {
-		"karma": "~0.10"
+		"karma": "~0.10",
+		"gulp": "*",
+		"gulp-concat": "*",
+		"gulp-sass": "*",
+		"gulp-sourcemaps": "*"
 	}
 }
