@@ -9,29 +9,7 @@
 </head>
 <body>
 	<div class="main-container">
-		<div class="container" ng-controller="Inbox">
-			<h3>Control your stuff!</h3>
-			<p>
-				<input type="text" class="form-control" placeholder="New thing" ng-model="newThing"/>
-			</p>
-			<p>
-				<button class="btn btn-primary" ng-click="addNewThing()">
-					<span class="glyphicon glyphicon-plus"></span>
-					Add
-				</button>
-				<button class="btn btn-primary">
-					<span class="glyphicon glyphicon-plus-sign"></span>
-					Add and manage
-				</button>
-			</p>
-			<div class="list-group">
-				<a  href="#"
-					class="list-group-item"
-					ng-repeat="item in inbox | orderBy:'-created'">
-						{{item.title}}
-				</a>
-			</div>
-		</div>
+		<div ng-view></div>
 		<div class="bottom-menu">
 			<div class="btn-group btn-group-justified">
 				<div class="btn-group btn-group-lg">

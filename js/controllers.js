@@ -9,3 +9,7 @@ scControllers.controller('Inbox', ['$scope', 'thingsStorage', function($scope, t
 		$scope.newThing = '';
 	};
 }]);
+
+scControllers.controller('Manage', ['$scope', '$routeParams', function($scope, $routeParams) {
+	$scope.id = $routeParams.id;
+}]);

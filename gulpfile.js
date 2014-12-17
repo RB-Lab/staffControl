@@ -13,7 +13,7 @@ gulp.task('sass', function() {
 gulp.task('concat', function() {
 	return gulp.src([
 			'js/**/angular.js',
-			'js/**/!(*mock*|angular).js'
+			'js/**/!(*mock*|angular.js).js'
 		])
 		.pipe(sourcemap.init({loadMaps: true}))
 		.pipe(concat('app.js'))

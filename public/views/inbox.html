@@ -1,0 +1,22 @@
+<div class="container" ng-controller="Inbox">
+	<p>
+		<input type="text" class="form-control" placeholder="New thing" ng-model="newThing"/>
+	</p>
+	<p>
+		<button class="btn btn-primary" ng-click="addNewThing()">
+			<span class="glyphicon glyphicon-plus"></span>
+			Add
+		</button>
+		<button class="btn btn-primary">
+			<span class="glyphicon glyphicon-plus-sign"></span>
+			Add and manage
+		</button>
+	</p>
+	<div class="list-group">
+		<a  href="#"
+			class="list-group-item"
+			ng-repeat="item in inbox | orderBy:'-created'">
+				{{item.title}}
+		</a>
+	</div>
+</div>
