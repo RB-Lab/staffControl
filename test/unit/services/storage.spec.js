@@ -2,28 +2,21 @@
 describe('scStorage service', function() {
 	beforeEach(module('scStorage'));
 
-	var mockWindow, storageIsEmpty;
+	var mockWindow, inbox;
 
 	beforeEach(function(){
-		storageIsEmpty = true;
+		inbox = null;
 		mockWindow = {
 			localStorage: {
-				storage: {},
-				setItem: function(key, value){
-					this.storage[key] = value;
-				},
-				getItem: function(key) {
-					if (key === 'inbox') {
-						if(storageIsEmpty) return null;
-						return JSON.stringify(['this is right array']);
-					}
-					return JSON.stringify(['this is wrong array']);
-				}
+				setItem: jasmine.createSpy('setItem').andCallFake(function(){
+					inbox = arguments[1]
+				}),
+				getItem: jasmine.createSpy('getItem').andCallFake(function(){
+					return inbox;
+				})
 			},
 			Date: {
-				now: function(){
-					return 123;
-				}
+				now: jasmine.createSpy('now').andReturn(123)
 			}
 		};
 
@@ -35,23 +28,28 @@ describe('scStorage service', function() {
 
 	it('initial things should be an ampty arry if stoarge is empty', function(){
 		inject(function(thingsStorage){
+			expect(mockWindow.localStorage.getItem).toHaveBeenCalledWith('inbox');
 			expect(thingsStorage.inbox).toEqual([]);
 		});
 	});
 
 	it('should get initial things froom local storage if stoarge is NOT empty', function(){
-		storageIsEmpty = false;
+		inbox = '"foo"'; // value in inbox should be valid JSON.
 		inject(function(thingsStorage){
-			expect(thingsStorage.inbox).toEqual(['this is right array']);
+			expect(mockWindow.localStorage.getItem).toHaveBeenCalledWith('inbox');
+			expect(thingsStorage.inbox).toEqual('foo');
 		});
 	});
 
 	it('should save things to local storage', function(){
 		inject(function(thingsStorage) {
-			expect(mockWindow.localStorage.storage).toEqual({});
 			thingsStorage.addItemToInbox('foo');
-			expect(mockWindow.localStorage.storage.inbox).toBeDefined();
-			var inbox = JSON.parse(mockWindow.localStorage.storage.inbox);
+			expect(mockWindow.Date.now).toHaveBeenCalled();
+			// I'm not using toHaveBeenCalledWith('inbox', 'right JSON') to be able to check only backward compatibility
+			// of new variations of Thing's model instead of checking instad of checking complete equivalence
+			expect(mockWindow.Date.now).toHaveBeenCalled();
+			expect(mockWindow.localStorage.setItem.mostRecentCall.args[0]).toEqual('inbox');
+			inbox = JSON.parse(inbox);
 			expect(inbox instanceof Array).toBe(true);
 			expect(inbox.length).toEqual(1);
 			expect(inbox[0].title).toEqual('foo');
