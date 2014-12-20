@@ -47,4 +47,14 @@ describe('scApp controllers', function() {
 		});
 	});
 
+	it('shouldn\'t add empty strings', function(){
+		inject(function($controller){
+			var scope = {};
+			$controller('Inbox', {$scope:scope});
+			expect(scope.inbox.length).toEqual(3);
+			scope.addNewThing();
+			expect(scope.inbox.length).toEqual(3);
+		});
+	});
+
 });
