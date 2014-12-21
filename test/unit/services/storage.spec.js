@@ -9,7 +9,7 @@ describe('scStorage service', function() {
 		mockWindow = {
 			localStorage: {
 				setItem: jasmine.createSpy('setItem').andCallFake(function(){
-					inbox = arguments[1]
+					inbox = arguments[1];
 				}),
 				getItem: jasmine.createSpy('getItem').andCallFake(function(){
 					return inbox;
@@ -50,16 +50,34 @@ describe('scStorage service', function() {
 	it('should save things to local storage', function(){
 		inject(function(thingsStorage) {
 			thingsStorage.addItemToInbox('foo');
-			expect(mockWindow.Date.now).toHaveBeenCalled();
-			// I'm not using toHaveBeenCalledWith('inbox', 'right JSON') to be able to check only backward compatibility
-			// of new variations of Thing's model instead of checking instad of checking complete equivalence
 			expect(mockWindow.localStorage.setItem.mostRecentCall.args[0]).toEqual('inbox');
 			inbox = JSON.parse(inbox);
 			expect(inbox instanceof Array).toBe(true);
 			expect(inbox.length).toEqual(1);
+		});
+	});
+
+	it('should save thing with id 8 chars length', function(){
+		inject(function(thingsStorage){
+			thingsStorage.addItemToInbox('foo');
+			inbox = JSON.parse(inbox);
 			expect(mockRandomString).toHaveBeenCalledWith(8);
 			expect(inbox[0].id).toEqual('foobar');
+		});
+	});
+
+	it('should save thing with title passed', function(){
+		inject(function(thingsStorage){
+			thingsStorage.addItemToInbox('foo');
+			inbox = JSON.parse(inbox);
 			expect(inbox[0].title).toEqual('foo');
+		});
+	});
+
+	it('should save thing created at current moment of time', function(){
+		inject(function(thingsStorage){
+			thingsStorage.addItemToInbox('foo');
+			inbox = JSON.parse(inbox);
 			expect(mockWindow.Date.now).toHaveBeenCalled();
 			expect(inbox[0].created).toEqual(123);
 		});
