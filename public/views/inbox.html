@@ -15,6 +15,7 @@
 	<div class="list-group">
 		<a  href="#"
 			class="list-group-item"
+			ng-href="#/manage/{{item.id}}"
 			ng-repeat="item in inbox | orderBy:'-created'">
 				{{item.title}}
 		</a>

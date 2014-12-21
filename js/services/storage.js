@@ -1,6 +1,6 @@
-var scStorage = angular.module('scStorage', ['randomString']);
+var scStorage = angular.module('scStorage', ['randomString', 'ngLodash']);
 
-scStorage.factory('thingsStorage', ['$window', 'randomString', function(w, randomString){
+scStorage.factory('thingsStorage', ['$window', 'randomString', 'lodash', function(w, randomString, _){
 	var storage = w.localStorage;
 
 	var inbox = getFromLocalStorage();
@@ -20,6 +20,11 @@ scStorage.factory('thingsStorage', ['$window', 'randomString', function(w, rando
 		addItemToInbox: function(name){
 			inbox.push({id: randomString(8), title: name, created: w.Date.now()});
 			saveToLocalStorage();
+		},
+		getItem: function(id){
+			return _.find(inbox, function(item){
+				return id === item.id;
+			});
 		}
 	};
 

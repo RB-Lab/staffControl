@@ -10,6 +10,8 @@ scControllers.controller('Inbox', ['$scope', 'thingsStorage', function($scope, t
 	};
 }]);
 
-scControllers.controller('Manage', ['$scope', '$routeParams', function($scope, $routeParams) {
-	$scope.id = $routeParams.id;
+scControllers.controller('Manage', ['$scope', '$routeParams', 'thingsStorage', function($scope, $routeParams, thingsStorage) {
+
+	$scope.item = thingsStorage.getItem($routeParams.id);
+
 }]);

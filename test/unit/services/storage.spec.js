@@ -82,4 +82,12 @@ describe('scStorage service', function() {
 			expect(inbox[0].created).toEqual(123);
 		});
 	});
+
+	it('should get item by id', function(){
+		inject(function(thingsStorage){
+			thingsStorage.addItemToInbox('foo');
+			inbox = JSON.parse(inbox);
+			expect(thingsStorage.getItem('foobar')).toEqual(inbox[0]);
+		});
+	});
 });
