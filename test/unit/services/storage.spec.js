@@ -90,4 +90,12 @@ describe('scStorage service', function() {
 			expect(thingsStorage.getItem('foobar')).toEqual(inbox[0]);
 		});
 	});
+
+	it('should get last item', function(){
+		inject(function(thingsStorage){
+			thingsStorage.addItemToInbox('foo');
+			inbox = JSON.parse(inbox);
+			expect(thingsStorage.getLastItem()).toEqual(inbox[inbox.length - 1]);
+		});
+	});
 });

@@ -1,7 +1,7 @@
 describe('scApp controllers', function() {
 	beforeEach(module('scControllers'));
 
-	var mockScStorgae;
+	var mockScStorgae, mockLocation;
 
 	beforeEach(function(){
 
@@ -9,11 +9,19 @@ describe('scApp controllers', function() {
 			inbox: [1,1,1],
 			addItemToInbox: function(name){
 				this.inbox.push(name);
+			},
+			getLastItem: function(){
+				return {id: 'foo'};
 			}
+		};
+
+		mockLocation = {
+			path: jasmine.createSpy('$location.path')
 		};
 
 		module(function ($provide) {
 			$provide.value('thingsStorage', mockScStorgae);
+			$provide.value('$location', mockLocation);
 		});
 
 	});
@@ -54,6 +62,25 @@ describe('scApp controllers', function() {
 			expect(scope.inbox.length).toEqual(3);
 			scope.addNewThing();
 			expect(scope.inbox.length).toEqual(3);
+		});
+	});
+
+	it('should add and send me manage things', function(){
+		inject(function($controller){
+			var scope = {};
+			$controller('Inbox', {$scope:scope});
+			scope.newThing = 'foo';
+			scope.addAndManage();
+			expect(mockLocation.path).toHaveBeenCalledWith('/manage/foo');
+		});
+	});
+
+	it('shouldn\'t add & manage empty strings', function(){
+		inject(function($controller){
+			var scope = {};
+			$controller('Inbox', {$scope:scope});
+			scope.addAndManage();
+			expect(mockLocation.path.calls.length).toEqual(0);
 		});
 	});
 

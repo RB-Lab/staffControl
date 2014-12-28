@@ -26,6 +26,9 @@ scStorage.factory('thingsStorage', ['$window', 'randomString', 'lodash', functio
 			return _.find(inbox, function(item){
 				return id === item.id;
 			});
+		},
+		getLastItem: function(){
+			return inbox[inbox.length - 1];
 		}
 	};
 
