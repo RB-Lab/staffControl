@@ -3,9 +3,12 @@
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
-		"angular": "1.2.x",
-		"angular-mocks": "~1.2.x",
+		"angular": "1.3.x",
 		"angular-route": "~1.3.0",
-		"ng-lodash": "0.1.0"
+		"ng-lodash": "0.1.0",
+		"angular-random-string": "*"
+	},
+	"devDependencies": {
+		"angular-mocks": "~1.3.x"
 	}
 }

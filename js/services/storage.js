@@ -1,4 +1,5 @@
-var scStorage = angular.module('scStorage', ['randomString', 'ngLodash']);
+var scStorage = angular.module('scStorage', ['angular-random-string', 'ngLodash']);
+
 
 scStorage.factory('thingsStorage', ['$window', 'randomString', 'lodash', function(w, randomString, _){
 	var storage = w.localStorage;
