@@ -25,8 +25,8 @@ gulp.task('concat', function() {
 });
 
 gulp.task('watch', function() {
-	gulp.watch('js/*.js', ['concat']);
-	gulp.watch('scss/*.scss', ['sass']);
+	gulp.watch('js/**/*.js', ['concat']);
+	gulp.watch('scss/**/*.scss', ['sass']);
 });
 
 
