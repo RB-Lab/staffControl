@@ -1,5 +1,13 @@
 {
-    "predef": ["describe", "beforeEach", "spyOn", "expect", "it", "module", "inject", "jasmine"],
-    "browser": true,
-	"curly": false
+	"undef": true,
+	"unused": true,
+	"eqeqeq": true,
+	"maxcomplexity": 11,
+	"maxdepth": 7,
+	"maxlen": 80,
+	"maxstatements": 30,
+	"curly": false,
+	"predef": ["describe", "beforeEach", "spyOn", "expect", "it", "module", "inject", "jasmine"],
+	"quotmark": "single",
+	"browser": true
 }

@@ -6,5 +6,8 @@
 	"maxdepth": 7,
 	"maxlen": 80,
 	"maxstatements": 30,
-	"curly": false
+	"curly": false,
+	"browser": true,
+	"quotmark": "single",
+	"predef": ["angular"]
 }
