@@ -1,5 +1,5 @@
 describe('scApp controllers', function() {
-	beforeEach(module('scControllers'));
+	beforeEach(module('Inbox'));
 
 	var mockScStorgae, mockLocation;
 

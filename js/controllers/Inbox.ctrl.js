@@ -1,6 +1,4 @@
-var scControllers = angular.module('scControllers', ['scStorage']);
-
-scControllers.controller('Inbox', [
+angular.module('Inbox', ['scStorage']).controller('Inbox', [
 	'$scope',
 	'$location',
 	'thingsStorage',
@@ -20,9 +18,3 @@ scControllers.controller('Inbox', [
 		};
 	}
 ]);
-
-scControllers.controller('Manage', ['$scope', '$routeParams', 'thingsStorage', function($scope, $routeParams, thingsStorage) {
-
-	$scope.item = thingsStorage.getItem($routeParams.id);
-
-}]);

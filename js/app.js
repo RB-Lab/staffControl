@@ -1,6 +1,7 @@
-var scApp = angular.module('scApp', ['ngRoute', 'scControllers']);
+var scApp = angular.module('scApp', ['ngRoute', 'Inbox', 'Manage']);
 
-scApp.config(['$routeProvider',
+scApp.config([
+	'$routeProvider',
 	function($routeProvider) {
 		$routeProvider.
 			when('/inbox', {
@@ -14,4 +15,5 @@ scApp.config(['$routeProvider',
 			otherwise({
 				redirectTo: '/inbox'
 			});
-	}]);
+	}
+]);
