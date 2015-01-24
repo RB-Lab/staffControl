@@ -17,12 +17,12 @@ gulp.task('concat', function() {
 			'js/**/angular.js',
 			'js/**/!(*mock*|angular.js|angular.min.js).js'
 		])
-		.pipe(sourcemap.init({loadMaps: true}))
+//		.pipe(sourcemap.init({loadMaps: true}))
 		.pipe(concat('app.js'))
-		.pipe(sourcemap.write({
-			includeContent: false,
-			sourceRoot: '/var/www/stuffControll/js'
-		}))
+//		.pipe(sourcemap.write({
+//			includeContent: false,
+//			sourceRoot: '/Users/rbekkiev/private/stuffControl/js'
+//		}))
 		.pipe(gulp.dest('public/js'));
 });
 

@@ -29,6 +29,9 @@ scStorage.factory('thingsStorage', ['$window', 'randomString', 'lodash', functio
 		},
 		getLastItem: function(){
 			return inbox[inbox.length - 1];
+		},
+		save: function(){
+			saveToLocalStorage();
 		}
 	};
 

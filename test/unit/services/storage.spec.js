@@ -98,4 +98,12 @@ describe('scStorage service', function() {
 			expect(thingsStorage.getLastItem()).toEqual(inbox[inbox.length - 1]);
 		});
 	});
+
+	it('should save items on demand', function(){
+		inject(function(thingsStorage){
+			thingsStorage.save();
+			expect(mockWindow.localStorage.setItem)
+				.toHaveBeenCalledWith('inbox', JSON.stringify(thingsStorage.inbox));
+		});
+	});
 });
