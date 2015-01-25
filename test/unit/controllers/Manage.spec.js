@@ -1,6 +1,6 @@
 describe('Manage controller', function() {
 
-	beforeEach(module('Manage'));
+	beforeEach(module('manageController'));
 
 	var mockScStorgae, mockRouteParams, mockLocation;
 
@@ -34,7 +34,7 @@ describe('Manage controller', function() {
 	it('should have an item with ID taken from route params', function(){
 		inject(function($controller) {
 			var scope = {};
-			$controller('Manage', {$scope:scope});
+			$controller('ManageController', {$scope:scope});
 			expect(scope.item).toEqual({id: 'foo'});
 		});
 	});
@@ -42,7 +42,7 @@ describe('Manage controller', function() {
 	it('should set "isAction" and go further (it is action)', function(){
 		inject(function($controller) {
 			var scope = {};
-			$controller('Manage', {$scope:scope});
+			$controller('ManageController', {$scope:scope});
 			scope.itIsAction(true);
 			expect(scope.item.isAction).toEqual(true);
 			expect(mockScStorgae.save).toHaveBeenCalled();
@@ -54,7 +54,7 @@ describe('Manage controller', function() {
 	it('should set "isAction" and go further (it is not action)', function(){
 		inject(function($controller) {
 			var scope = {};
-			$controller('Manage', {$scope:scope});
+			$controller('ManageController', {$scope:scope});
 			scope.itIsAction(false);
 			expect(scope.item.isAction).toEqual(false);
 			expect(mockScStorgae.save).toHaveBeenCalled();

@@ -1,4 +1,4 @@
-angular.module('Manage', ['scStorage']).controller('Manage', [
+angular.module('manageController', ['scStorage']).controller('ManageController', [
 	'$scope',
 	'$routeParams',
 	'$location',

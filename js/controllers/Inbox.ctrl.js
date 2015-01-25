@@ -1,4 +1,4 @@
-angular.module('Inbox', ['scStorage']).controller('Inbox', [
+angular.module('inboxController', ['scStorage']).controller('InboxController', [
 	'$scope',
 	'$location',
 	'thingsStorage',

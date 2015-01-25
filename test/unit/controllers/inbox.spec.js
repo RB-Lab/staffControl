@@ -1,6 +1,6 @@
 describe('Inbox controller', function() {
 
-	beforeEach(module('Inbox'));
+	beforeEach(module('inboxController'));
 
 	var mockScStorgae, mockLocation;
 
@@ -31,7 +31,7 @@ describe('Inbox controller', function() {
 	it('should have inbox array taken from scThingsStorage', function(){
 		inject(function($controller) {
 			var scope = {};
-			$controller('Inbox', {$scope:scope});
+			$controller('InboxController', {$scope:scope});
 			expect(scope.inbox).toEqual(mockScStorgae.inbox);
 		});
 	});
@@ -39,7 +39,7 @@ describe('Inbox controller', function() {
 	it('should have newThig propery', function(){
 		inject(function($controller) {
 			var scope = {};
-			$controller('Inbox', {$scope:scope});
+			$controller('InboxController', {$scope:scope});
 			expect(scope.newThing).toEqual('');
 		});
 	});
@@ -47,7 +47,7 @@ describe('Inbox controller', function() {
 	it('should add new things', function(){
 		inject(function($controller) {
 			var scope = {};
-			$controller('Inbox', {$scope:scope});
+			$controller('InboxController', {$scope:scope});
 			expect(scope.inbox.length).toEqual(3);
 			scope.newThing = 'foo';
 			scope.addNewThing();
@@ -59,7 +59,7 @@ describe('Inbox controller', function() {
 	it('shouldn\'t add empty strings', function(){
 		inject(function($controller){
 			var scope = {};
-			$controller('Inbox', {$scope:scope});
+			$controller('InboxController', {$scope:scope});
 			expect(scope.inbox.length).toEqual(3);
 			scope.addNewThing();
 			expect(scope.inbox.length).toEqual(3);
@@ -69,7 +69,7 @@ describe('Inbox controller', function() {
 	it('should add and send me manage things', function(){
 		inject(function($controller){
 			var scope = {};
-			$controller('Inbox', {$scope:scope});
+			$controller('InboxController', {$scope:scope});
 			scope.newThing = 'foo';
 			scope.addAndManage();
 			expect(mockLocation.path).toHaveBeenCalledWith('/manage/foo');
@@ -79,7 +79,7 @@ describe('Inbox controller', function() {
 	it('shouldn\'t add & manage empty strings', function(){
 		inject(function($controller){
 			var scope = {};
-			$controller('Inbox', {$scope:scope});
+			$controller('InboxController', {$scope:scope});
 			scope.addAndManage();
 			expect(mockLocation.path.calls.length).toEqual(0);
 		});
